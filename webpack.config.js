@@ -1,11 +1,15 @@
-const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  entry: path.join(__dirname, '/client/index.js'),
+  entry: path.join(__dirname, '/src/app.jsx'),
   output: {
-    path: path.join(__dirname, '/build'),
+    path: path.join(__dirname, '/build/'),
     filename: 'bundle.js',
+    publicPath: '/build/',
+  },
+  devServer: {
+    publicPath: '/build/',
+    contentBase: path.join(__dirname, '/src'),
   },
   mode: process.env.NODE_ENV,
   module: {
@@ -20,19 +24,14 @@ module.exports = {
           },
         },
       },
-      { // css and scss loader
-        test: /\.s[ac]ss$/i,
+      { // css loader
+        test: /\.css$/i,
         use: [
-          { // bundles the CSS into its own file
-            options: {
-              publicPath: path.join(__dirname, '/src/css/'),
-            },
-          },
           // Creates `style` nodes from JS strings
           'style-loader',
           // Translates CSS into CommonJS
           'css-loader',
-        ],
+        ]
       },
     ],
   },
