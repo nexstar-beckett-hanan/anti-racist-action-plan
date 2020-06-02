@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
@@ -21,9 +22,19 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env', '@babel/preset-react'],
+            plugins: ["@babel/plugin-transform-runtime"],
           },
         },
       },
+      // { // JSON loader
+      //   type: 'javascript/auto',
+      //   test: /\.json$/,
+      //   use: [
+      //       {
+      //         loader: 'file-loader',
+      //       }
+      //   ]
+      // },
       { // css loader
         test: /\.css$/i,
         use: [

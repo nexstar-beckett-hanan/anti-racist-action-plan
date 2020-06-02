@@ -6,15 +6,17 @@ h1 {
 header {
   display: flex;
   justify-content: center;
+  border: 1px solid black;
 }
 
 #outer-container {
-  
+  border: 1px solid black;
 }
 
 #main-section {
   display: flex;
   justify-content: center;
+  border: 1px solid black;
 }
 
 

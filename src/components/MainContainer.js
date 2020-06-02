@@ -5,7 +5,7 @@ const MainContainer = () => {
     return (
     <div id="outer-container">
       <header>
-        <h1>Anti-Racist Action Plan</h1>
+        <h1>Do Something</h1>
       </header>
       <section id="main-section">
         <Prompt />

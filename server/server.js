@@ -1,8 +1,14 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
 const PORT = 3000;
+
+// enables us to get data from HTTP POST requests
+app.use(bodyParser.urlencoded({ extended: true }));
+// enables us to get JSON on an incoming request at req.body
+app.use(bodyParser.json());
 
 console.log(`process.env.NODE_ENV is ${process.env.NODE_ENV}`);
 
