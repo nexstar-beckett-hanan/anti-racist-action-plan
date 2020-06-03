@@ -11,6 +11,11 @@ module.exports = {
   devServer: {
     publicPath: '/build/',
     contentBase: path.join(__dirname, '/src'),
+    proxy: {
+      '/api/': {
+        target: 'http://localhost:3000/',
+      },
+    }
   },
   mode: process.env.NODE_ENV,
   module: {
@@ -26,15 +31,6 @@ module.exports = {
           },
         },
       },
-      // { // JSON loader
-      //   type: 'javascript/auto',
-      //   test: /\.json$/,
-      //   use: [
-      //       {
-      //         loader: 'file-loader',
-      //       }
-      //   ]
-      // },
       { // css loader
         test: /\.css$/i,
         use: [
