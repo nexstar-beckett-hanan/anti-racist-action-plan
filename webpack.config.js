@@ -12,7 +12,7 @@ module.exports = {
     publicPath: '/build/',
     contentBase: path.join(__dirname, '/src'),
     proxy: {
-      '/api/': {
+      '/api**': {
         target: 'http://localhost:3000/',
       },
     }

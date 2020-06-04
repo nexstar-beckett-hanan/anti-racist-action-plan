@@ -7,7 +7,7 @@ import {
   Link
 } from "react-router-dom";
 import Prompt from './Prompt';
-
+import Action from './Action';
 
 class MainContainer extends Component {
   constructor(props) {
@@ -15,54 +15,100 @@ class MainContainer extends Component {
     this.state = {
       actions: [],
       fetchedActions: false,
+      prompts: [],
+      activePrompt: 0,
+      selectedAction: '',
     }
+
+    // this.renderTime = this.renderTime.bind(this);
+    // this.renderMoney = this.renderMoney.bind(this);
+    this.loadPrompts = this.loadPrompts.bind(this);
   }
 
-  componentDidMount() {
-    fetch('/api/')
+  loadPrompts () {
+    this.setState({ prompts: [
+      <div className="prompt">
+        <h2>What resource is currently most available to you?</h2>
+        <div className="buttons">
+          <button onClick={() => this.renderTime()}>TIME</button>
+          <button onClick={() => this.renderMoney()}>MONEY</button>
+        </div>
+      </div>,
+      <div className="prompt">
+        <h2>How much money can you give today?</h2>
+        <div className="buttons">
+          <button onClick={() => {
+            this.getSpecificActions('money=5');
+          }}>$5</button>
+          <button onClick={() => {
+            this.getSpecificActions('money=20');
+          }}>$20</button>
+          <button onClick={() => {
+            this.getSpecificActions('money=100');
+          }}>$100+</button> 
+        </div>
+      </div>,
+      <div className="prompt">
+        <h2>How much time can you give today?</h2>
+          <div className="buttons">
+            <button>15 MINUTES</button>
+            <button>1 HOUR</button>
+            <button>2+ HOURS</button>
+            <button>LONG-TERM INVESTMENT</button> 
+          </div>
+      </div>
+    ]});
+  }
+
+  UNSAFE_componentWillMount() {
+    this.loadPrompts();
+  }
+
+  getSpecificActions(matchCriteria) {
+    fetch(`/api?${matchCriteria}`, {
+      method: 'GET',
+      headers: {
+        "Content-Type": "Application/JSON"
+      },
+    })
       .then(res => res.json())
-      .then((actions) => {
-        console.log(actions);
+      .then((data) => {
         return this.setState({
-          actions,
-          fetchedActions: true
-        });
+            actions: data,
+            fetchedActions: true
+        })
       })
-      .catch(err => console.log('ERROR in MainContainer.componentDidMount while attempting to get actions table. Error is: ', err));
+      .catch(err => console.log('ERROR in MainContainer.getSpecificActions while attempting to get actions table. Error is: ', err));
+  }
+
+  renderTime () {
+    this.setState((state) => {
+      return {
+        activePrompt: 2
+      };
+    });
+  }
+
+  renderMoney () {
+    this.setState({activePrompt: 1});
   }
 
   render () {
-    // if we haven't fetched the actions yet, ask people to wait
-    if (!this.state.fetchedActions) {
-      return (
-        <div>
-          <h1>Loading, please wait...</h1>
-        </div>
-      ); 
-    }
-
-    const { actions } = this.state;
-    // console.log(actions);
-
-    if (!actions) return null;
-
-    if (!actions.length) return (
-      <div>Sorry, no actions found</div>
-    );
-
+    const {prompts, activePrompt, fetchedActions, actions } = this.state;
 
     return (
     <div id="outer-container">
       <header>
-        <section class="subtitle">
+        <section className="subtitle">
           <h3>TAKE ANTI-RACIST ACTION</h3>
         </section>
-        <section class="rounded-border">
+        <section className="rounded-border">
           <h1>DO SOMETHING</h1>
         </section>
       </header>
       <section id="main-section">
-        <Prompt actions={actions}/>
+        <Prompt prompts={prompts} activePrompt={activePrompt} />
+        <Action fetchedActions={fetchedActions} actions={actions}/>
       </section>
     </div>
     )
