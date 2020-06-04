@@ -54,7 +54,12 @@ class MainContainer extends Component {
     return (
     <div id="outer-container">
       <header>
-        <h1>Do Something</h1>
+        <section class="subtitle">
+          <h3>TAKE ANTI-RACIST ACTION</h3>
+        </section>
+        <section class="rounded-border">
+          <h1>DO SOMETHING</h1>
+        </section>
       </header>
       <section id="main-section">
         <Prompt actions={actions}/>
