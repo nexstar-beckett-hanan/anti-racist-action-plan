@@ -96,6 +96,13 @@ class MainContainer extends Component {
   render () {
     const {prompts, activePrompt, fetchedActions, actions } = this.state;
 
+    let showThis;
+    if (!fetchedActions) {
+      showThis = <Prompt prompts={prompts} activePrompt={activePrompt} />
+    } else {
+      showThis = <Action fetchedActions={fetchedActions} actions={actions}/>
+    }
+
     return (
     <div id="outer-container">
       <header>
@@ -107,8 +114,7 @@ class MainContainer extends Component {
         </section>
       </header>
       <section id="main-section">
-        <Prompt prompts={prompts} activePrompt={activePrompt} />
-        <Action fetchedActions={fetchedActions} actions={actions}/>
+        {showThis}
       </section>
     </div>
     )

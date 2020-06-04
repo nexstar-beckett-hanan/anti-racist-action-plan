@@ -27,7 +27,7 @@ h3 {
 p {
   font-size:15pt;
   font-family: Arial black, Helvetica, sans-serif;
-  color:#e5e4e2;
+  color:#161616;
 }
 
 button {
@@ -59,7 +59,10 @@ section .subtitle {
 }
 
 #main-section {
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .prompt {
@@ -67,6 +70,18 @@ section .subtitle {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+#action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width:80%;
+  margin: 50px 20px;
+  background-color: #e5e4e2;
+  border-radius: 4px;
+  padding:20px;
 }
 
 .rounded-border {

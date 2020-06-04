@@ -12,7 +12,10 @@ const Action = ({ fetchedActions, actions }) => {
   
       return (
         <div>
-          <p>{parse(selectedAction)}</p>
+          <h2>BASED ON YOUR ANSWERS, YOUR PLAN OF ACTION IS:</h2>
+          <div id="action">
+            <p>{parse(selectedAction)}</p>
+          </div>
         </div>
       );
     }
