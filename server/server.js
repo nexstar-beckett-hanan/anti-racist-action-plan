@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+require('dotenv').config()
 
 const app = express();
 const router = require('./routes/router');
@@ -51,6 +52,6 @@ app.listen(PORT, (err) => {
   if (!err) {
     console.log(`Server listening on port: ${PORT}`);
   } else {
-    console.log(`Server error after attempting to lsiten on Port ${PORT}. Error is ${err}`);
+    console.log(`Server error after attempting to listen on Port ${PORT}. Error is ${err}`);
   }
 });

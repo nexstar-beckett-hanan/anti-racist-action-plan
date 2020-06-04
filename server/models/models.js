@@ -1,6 +1,6 @@
 const { Pool } = require('pg');
 
-const PG_URI = 'postgres://ebpguuxs:J8M4YbQ2Qxx_gjLbLd_GpnxD2AM514sp@ruby.db.elephantsql.com:5432/ebpguuxs';
+const PG_URI = `postgres://${process.env.DB_USER}:${process.env.DB_PASS}@ruby.db.elephantsql.com:5432/${process.env.DB_USER}`;
 
 // create a new pool using the connection string above
 const pool = new Pool({
