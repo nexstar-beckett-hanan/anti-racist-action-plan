@@ -22,6 +22,7 @@
     "express": "^4.17.1",
     "file-loader": "^6.0.0",
     "html-react-parser": "^0.10.5",
+    "html-webpack-plugin": "^4.3.0",
     "path": "^0.12.7",
     "pg": "^8.2.1",
     "react": "^16.13.1",

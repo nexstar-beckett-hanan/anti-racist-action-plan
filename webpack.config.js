@@ -1,8 +1,14 @@
 const webpack = require('webpack');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: path.join(__dirname, '/src/app.jsx'),
+  // plugins: [
+  //   new HtmlWebpackPlugin({
+  //     title: 'Do Something | Anti-Racist Action',
+  //   }),
+  // ],
   output: {
     path: path.join(__dirname, '/build/'),
     filename: 'bundle.js',
