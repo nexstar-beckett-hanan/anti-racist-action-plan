@@ -51,10 +51,18 @@ class MainContainer extends Component {
       <div className="prompt">
         <h2>How much time can you give today?</h2>
           <div className="buttons">
-            <button>15 MINUTES</button>
-            <button>1 HOUR</button>
-            <button>2+ HOURS</button>
-            <button>LONG-TERM INVESTMENT</button> 
+            <button onClick={() => {
+            this.getSpecificActions('time=15');
+          }}>15-30 MINUTES</button>
+            <button onClick={() => {
+            this.getSpecificActions('time=30');
+          }}>30-120 MINUTES</button>
+            <button onClick={() => {
+            this.getSpecificActions('time=120');
+          }}>2+ HOURS</button>
+            <button onClick={() => {
+            this.getSpecificActions('time=240');
+          }}>LONG-TERM INVESTMENT</button> 
           </div>
       </div>
     ]});

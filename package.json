@@ -4,6 +4,7 @@
   "main": "app.jsx",
   "scripts": {
     "start": "env NODE_ENV=production nodemon server/server.js",
+    "heroku-postbuild": "webpack -p",
     "build": "env NODE_ENV=production webpack",
     "dev": "env NODE_ENV=development concurrently \"nodemon server/server.js\" \"webpack-dev-server --open\""
   },

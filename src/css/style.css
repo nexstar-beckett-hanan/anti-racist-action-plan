@@ -72,16 +72,31 @@ section .subtitle {
   justify-content: center;
 }
 
-#action {
+.prompt h2 {
+  text-align: center;
+}
+
+#action-box {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+#action-box h2 {
+  text-align: center;
+}
+
+#action {
   width:80%;
-  margin: 50px 20px;
   background-color: #e5e4e2;
   border-radius: 4px;
   padding:20px;
+}
+
+#action p {
+  margin: 0;
+  padding: 20px;
 }
 
 .rounded-border {
