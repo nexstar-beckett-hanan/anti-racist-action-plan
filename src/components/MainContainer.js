@@ -28,7 +28,7 @@ class MainContainer extends Component {
   loadPrompts () {
     this.setState({ prompts: [
       <div className="prompt">
-        <h2>What resource is currently most available to you?</h2>
+        <h2>What resource is most available to you today?</h2>
         <div className="buttons">
           <button onClick={() => this.renderTime()}>TIME</button>
           <button onClick={() => this.renderMoney()}>MONEY</button>
