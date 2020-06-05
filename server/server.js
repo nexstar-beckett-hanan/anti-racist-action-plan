@@ -48,10 +48,10 @@ app.use((err, req, res, next) => {
   res.status(errorObj.status).json(errorObj.message);
 });
 
-app.listen(PORT, (err) => {
+app.listen(process.env.PORT || PORT, (err) => {
   if (!err) {
-    console.log(`Server listening on port: ${PORT}`);
+    console.log(`Server listening on port: ${process.env.PORT || PORT}`);
   } else {
-    console.log(`Server error after attempting to listen on Port ${PORT}. Error is ${err}`);
+    console.log(`Server error after attempting to listen on Port ${process.env.PORT || PORT}. Error is ${err}`);
   }
 });
