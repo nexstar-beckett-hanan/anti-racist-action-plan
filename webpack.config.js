@@ -7,17 +7,17 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/build/'),
     filename: 'bundle.js',
-    publicPath: '/public/',
+    publicPath: '/build/',
   },
-  plugins: [
-		new HtmlWebpackPlugin({
-			title: 'Do Something | Anti-Racist Action',
-			template: './src/index.html',
-			filename: 'index.html'
-		})
-	],
+  // plugins: [
+	// 	new HtmlWebpackPlugin({
+	// 		title: 'Do Something | Anti-Racist Action',
+	// 		template: './src/index.html',
+	// 		filename: 'index.html'
+	// 	})
+	// ],
   devServer: {
-    publicPath: '/public/',
+    publicPath: '/build/',
     contentBase: path.join(__dirname, '/src'),
     proxy: {
       '/api**': {

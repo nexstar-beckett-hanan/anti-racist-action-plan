@@ -21,7 +21,7 @@ console.log(`process.env.NODE_ENV is ${process.env.NODE_ENV}`);
 // (otherwise, webpack-dev-server handles serving them up)
 if (process.env.NODE_ENV === 'production') {
   // handle requests for static files using everything in the build folder
-  app.use('/public', express.static(path.join(__dirname, '../build')));
+  app.use('/build', express.static(path.join(__dirname, '../build')));
 
   // route handler for the main app
   app.get('/', (req, res) => {
