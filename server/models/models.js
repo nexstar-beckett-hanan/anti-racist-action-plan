@@ -1,11 +1,9 @@
 const { Pool } = require('pg');
 require('dotenv').config();
 
-const PG_URI = `postgres://${process.env.DB_USER}:${process.env.DB_PASS}@ruby.db.elephantsql.com:5432/${process.env.DB_USER}`;
-
 // create a new pool using the connection string above
 const pool = new Pool({
-  connectionString: PG_URI,
+  connectionString: process.env.PG_URI,
 });
 
 // export an object that contains a property called query,
