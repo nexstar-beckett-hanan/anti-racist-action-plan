@@ -72,6 +72,13 @@ class MainContainer extends Component {
     this.loadPrompts();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log(
+      `this.state.actions(♻️ componentDidUpdate)`,
+      this.state.actions
+    );
+  }
+
   getSpecificActions(matchCriteria) {
     fetch(`/api?${matchCriteria}`, {
       method: 'GET',
