@@ -6,7 +6,10 @@ const router = express.Router();
 router.get(
   '/',
   controller.getActions,
-  (req, res) => res.status(200).json(res.locals.actions)
+  (req, res) => {
+    console.log('got inside last part of router');
+    res.status(200).json(res.locals.actions);
+  }
 )
 
 module.exports = router;

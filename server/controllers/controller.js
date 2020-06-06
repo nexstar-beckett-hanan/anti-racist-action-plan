@@ -25,8 +25,9 @@ controller.getActions = (req, res, next) => {
   
   db.query(selection)
     .then((results) => {
-      console.log('got actions');
+      console.log(`results from db query in controller are ${results}`);
       res.locals.actions = results.rows;
+      console.log('saved actions');
       next();
     })
     .catch((error) => next(error));
