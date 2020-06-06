@@ -1,4 +1,5 @@
 const { Pool } = require('pg');
+require('dotenv').config();
 
 const PG_URI = `postgres://${process.env.DB_USER}:${process.env.DB_PASS}@ruby.db.elephantsql.com:5432/${process.env.DB_USER}`;
 
