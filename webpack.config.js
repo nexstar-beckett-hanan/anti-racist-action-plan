@@ -9,13 +9,13 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/build/',
   },
-  // plugins: [
-	// 	new HtmlWebpackPlugin({
-	// 		title: 'Do Something | Anti-Racist Action',
-	// 		template: './src/index.html',
-	// 		filename: 'index.html'
-	// 	})
-	// ],
+  plugins: [
+		new HtmlWebpackPlugin({
+			title: 'Do Something | Anti-Racist Action',
+			template: './src/index.html',
+			filename: 'index.html'
+		})
+	],
   devServer: {
     publicPath: '/build/',
     contentBase: path.join(__dirname, '/src'),

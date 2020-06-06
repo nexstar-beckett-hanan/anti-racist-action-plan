@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "app.jsx",
   "scripts": {
-    "start": "node server/server.js",
-    "build": "webpack",
+    "start": "NODE_ENV=production node server/server.js",
+    "build": "NODE_ENV=production webpack",
     "dev": "NODE_ENV=development concurrently \"nodemon server/server.js\" \"webpack-dev-server --open\""
   },
   "author": "Beckett Hanan",
