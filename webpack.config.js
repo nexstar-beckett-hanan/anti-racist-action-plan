@@ -3,11 +3,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: path.join(__dirname, '/src/app.jsx'),
+  entry: path.join(__dirname, '/src'),
   output: {
     path: path.join(__dirname, '/build/'),
     filename: 'bundle.js',
-    publicPath: '/build/',
+    publicPath: '/public/',
   },
   plugins: [
 		new HtmlWebpackPlugin({
@@ -17,7 +17,7 @@ module.exports = {
 		})
 	],
   devServer: {
-    publicPath: '/build/',
+    publicPath: '/public/',
     contentBase: path.join(__dirname, '/src'),
     proxy: {
       '/api**': {

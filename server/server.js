@@ -19,7 +19,7 @@ console.log(`process.env.NODE_ENV is ${process.env.NODE_ENV}`);
 
 // build folder and index.html are only needed from the express server if we're in production
 // (otherwise, webpack-dev-server handles serving them up)
-// if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
   // handle requests for static files using everything in the build folder
   app.use('/build', express.static(path.join(__dirname, '../build')));
 
@@ -27,7 +27,7 @@ console.log(`process.env.NODE_ENV is ${process.env.NODE_ENV}`);
   app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../src/index.html'));
   });
-// }
+}
 
 // catch-all route handler for any requests to an unknown route
 app.get('*', (req, res) => {
