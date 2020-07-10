@@ -1,11 +1,4 @@
 import React, { Component } from 'react';
-// could use this to redirect to different things to render based on the link
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
 import Prompt from './Prompt';
 import Action from './Action';
 
@@ -72,13 +65,6 @@ class MainContainer extends Component {
     this.loadPrompts();
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log(
-      `this.state.actions(♻️ componentDidUpdate)`,
-      this.state.actions
-    );
-  }
-
   getSpecificActions(matchCriteria) {
     fetch(`/api?${matchCriteria}`, {
       method: 'GET',
@@ -115,7 +101,7 @@ class MainContainer extends Component {
     if (!fetchedActions) {
       showThis = <Prompt prompts={prompts} activePrompt={activePrompt} />
     } else {
-      showThis = <Action fetchedActions={fetchedActions} actions={actions}/>
+      showThis = <Action fetchedActions={fetchedActions} actions={actions} />
     }
 
     return (

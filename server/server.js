@@ -1,4 +1,5 @@
 const express = require('express');
+const serverless = require('serverless-http');
 const bodyParser = require('body-parser');
 const path = require('path');
 require('dotenv').config()
@@ -12,8 +13,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // enables us to get JSON on an incoming request at req.body
 app.use(bodyParser.json());
 
-// define route handlers
-app.use('/api', router);
+app.use('/.netlify/functions/api', router);  // path must route to lambda
+
+// // define route handlers
+// app.use('/api', router);
 
 console.log(`process.env.NODE_ENV is ${process.env.NODE_ENV}`);
 
@@ -55,3 +58,8 @@ app.listen(process.env.PORT || PORT, (err) => {
     console.log(`Server error after attempting to listen on Port ${process.env.PORT || PORT}. Error is ${err}`);
   }
 });
+
+// export the app object
+module.exports = app;
+// export the serverless "wrapped" app
+module.exports.handler = serverless(app);
