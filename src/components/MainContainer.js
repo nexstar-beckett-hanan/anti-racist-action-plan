@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Prompt from './Prompt';
 import Action from './Action';
 
-const db = require('../models/models');
+const db = require('../../server/models/models');
 
 class MainContainer extends Component {
   constructor(props) {
